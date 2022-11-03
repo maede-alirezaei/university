@@ -7,6 +7,8 @@ import uniLogo from "../../assets/UniLogo.jpg";
 const navigation = [
   { name: "خانه", path: "/" },
   { name: "دستاورد ها", path: "/achievements" },
+  { name: "پروژه های دانشجویان", path: "/students-projects" },
+  { name: "اضافه کردن پروژه", path: "/add-projects" },
   { name: "مورد علاقه ها", path: "/favourites" },
 ];
 
@@ -34,18 +36,6 @@ export default function NavBar() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="ml-4 flex flex-shrink-0 items-center">
-                  <img
-                    className="block h-8 w-auto lg:hidden"
-                    src={uniLogo}
-                    alt="Allameh Logo"
-                  />
-                  <img
-                    className="hidden h-8 w-auto lg:block"
-                    src={uniLogo}
-                    alt="Allameh Logo"
-                  />
-                </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item, index) => (
@@ -68,26 +58,6 @@ export default function NavBar() {
               </div>
             </div>
           </div>
-
-          <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pt-2 pb-3">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={classNames(
-                    item.current
-                      ? "bg-gray-900 text-white"
-                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                    "block px-3 py-2 rounded-md text-base font-medium"
-                  )}
-                  aria-current={item.current ? "page" : undefined}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </Disclosure.Panel>
         </>
       )}
     </Disclosure>
