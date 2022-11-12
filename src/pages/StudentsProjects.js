@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import Card from "../components/ui/Card";
 
 const StudentsProjects = () => {
+  const lists = [1, 2, 3];
   return (
-    <div>StudentsProjects</div>
-  )
-}
+    <>
+      {lists.map((item) => (
+        <Card>item</Card>
+      ))}
+    </>
+  );
+};
 
-export default StudentsProjects
+export default StudentsProjects;

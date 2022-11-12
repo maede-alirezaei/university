@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import NewProjectFrom from "../components/project/NewProjectFrom";
 
 const AddProjects = () => {
   return (
-    <div>AddProjects</div>
-  )
-}
+    <>
+      <NewProjectFrom />
+    </>
+  );
+};
 
-export default AddProjects
+export default AddProjects;
