@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import MainInfo from "../components/home/MainInfo";
 
-const Home = () => {
+import SlideShow from "../components/home/SlideShow";
+
+export default function Home() {
   return (
-    <div>Home</div>
-  )
+    <>
+      <div className="min-h-full">
+        <MainInfo />
+        <SlideShow />
+      </div>
+    </>
+  );
 }
-
-export default Home
