@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from "react";
+import ProjectInfo from "../components/project/ProjectInfo";
+import FavoriteContext from "../components/store/favorite-context";
 
 const Favourites = () => {
-  return (
-    <div>Favourites</div>
-  )
-}
+  const cntx = useContext(FavoriteContext);
 
-export default Favourites
+  return cntx.favorites.map((item) => (
+    <ProjectInfo key={item.id} info={item} />
+  ));
+};
+
+export default Favourites;
