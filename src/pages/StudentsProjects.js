@@ -1,12 +1,40 @@
-import React from "react";
-import Card from "../components/ui/Card";
+import React, { useEffect, useState } from "react";
+import ProjectInfo from "../components/project/ProjectInfo";
 
 const StudentsProjects = () => {
-  const lists = [1, 2, 3];
+  const [isLoading, setIsLoading] = useState(true);
+  const [projects, setProjects] = useState(true);
+  useEffect(() => {
+    setIsLoading(true);
+    fetch("https://university-96152-default-rtdb.firebaseio.com/projects.json")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        const projects = [];
+        for (const key in data) {
+          const project = {
+            id: key,
+            ...data[key],
+          };
+          projects.push(project);
+        }
+        setIsLoading(false);
+        setProjects(projects);
+      });
+  }, []);
+
+  if (isLoading) {
+    return (
+      <section>
+        <p>در حال بارگیری...</p>
+      </section>
+    );
+  }
   return (
     <>
-      {lists.map((item) => (
-        <Card>item</Card>
+      {projects.map((item) => (
+        <ProjectInfo key={item.id} info={item} />
       ))}
     </>
   );
